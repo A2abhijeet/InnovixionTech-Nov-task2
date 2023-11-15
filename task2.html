@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>  
+<html>  
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1">  
+<style>  
+p {  
+  text-align: left;  
+  font-size: 20px;  
+  margin-top: -5px;  
+}  
+#clocks > div{  
+    padding: 12px;  
+    border-radius: 5px;  
+    background: gold;
+    display: inline-block;  
+    color: green;  
+    text-align: center;  
+}  
+#clocks div > span{  
+    padding: 20px;  
+    border-radius: 5px;  
+    background: lightgray;  
+    display: inline-block;  
+}  
+</style>  
+</head>  
+<body>  
+    <center>
+<h3>  Countdown Timer </h3>  
+<div id="clocks">  
+  <div>  
+    <span class="days_value" id="day_value"></span>  
+    <div class="small">Days</div>  
+  </div>  
+  <div>  
+    <span class="hours_value" id="hour_value"></span>  
+    <div class="small">Hours</div>  
+  </div>  
+  <div>  
+    <span class="minutes_value" id="minute_value"></span>  
+    <div class="small">Minutes</div>  
+  </div>  
+  <div>  
+    <span class="seconds_value" id="second_value"></span>  
+    <div class="small">Seconds</div>  
+  </div>  
+</div>  
+<p id = "demo_value"></p>  
+<script>  
+//display start time  
+const date_time1 = new Date('December 02, 2023 04:02:31').getTime();  
+var f_fun = setInterval(function() {  
+//display end time  
+const date_time2 =  new Date().getTime();  
+//show the difference between start and end time  
+const time_var = date_time1 - date_time2;  
+//convert difference time in days  
+const days_data = Math.floor(time_var / (1000 * 60 * 60 * 24));  
+//convert difference time in hours  
+const hours_data = Math.floor((time_var % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));  
+//convert difference time in minutes  
+const minutes_data = Math.floor((time_var % (1000 * 60 * 60)) / (1000 * 60));  
+//convert difference time in the second  
+const seconds_data = Math.floor((time_var % (1000 * 60)) / 1000);  
+//display countdown timer   
+document.getElementById("day_value").innerHTML = days_data;  
+document.getElementById("hour_value").innerHTML = hours_data;  
+document.getElementById("minute_value").innerHTML = minutes_data;  
+document.getElementById("second_value").innerHTML = seconds_data;  
+ }, 5);  
+</script> 
+    </center>
+</body>  
+</html>  
